@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="CalculatorTest" tests="5" skipped="0" failures="0" errors="0" timestamp="2025-01-13T05:36:13" hostname="seongpil-ui-MacBookAir.local" time="0.022">
+  <properties/>
+  <testcase name="0으로 나누기에 대한 예외 처리 확인 테스트" classname="CalculatorTest" time="0.005"/>
+  <testcase name="2 + 3 덧셈 연산 결과에 대한 정답 확인 테스트" classname="CalculatorTest" time="0.012"/>
+  <testcase name="3 - 2 뺄셈 연산 결과에 대한 정답 확인 테스트" classname="CalculatorTest" time="0.001"/>
+  <testcase name="6 / 2 나눗셈 연산 결과에 대한 정답 확인 테스트" classname="CalculatorTest" time="0.0"/>
+  <testcase name="2 * 3 곱셈 연산 결과에 대한 정답 확인 테스트" classname="CalculatorTest" time="0.001"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>
