@@ -1,9 +1,13 @@
 plugins {
     id 'java'
-    id 'idea'
+    id 'application'
 }
 
-group 'kr.codesquad'
+application {
+    mainClass = 'Main'
+}
+
+group 'codesquad'
 version '1.0-SNAPSHOT'
 
 repositories {
@@ -18,8 +22,4 @@ dependencies {
 
 test {
     useJUnitPlatform()
-}
-
-tasks.withType(JavaCompile) {
-    options.encoding = 'UTF-8'
 }

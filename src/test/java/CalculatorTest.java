@@ -49,4 +49,69 @@ class CalculatorTest {
     void testDivideByZero() {
         assertThrows(ArithmeticException.class, () -> calculator.divide(2, 0));
     }
+
+    @Test
+    @DisplayName("종합 계산 테스트 - 올바른 수식")
+    void calculateWithValidExpression() {
+        String expression = "2 + 3;4 * 5 / 3";
+        int result = calculator.calculate(expression);
+        assertThat(result).isEqualTo(15);
+    }
+
+    @Test
+    @DisplayName("종합 계산 테스트 - 올바른 수식(하나의 숫자만 포함)")
+    void calculateWithValidExpressionOnlyOneNumber() {
+        String expression = "2";
+        int result = calculator.calculate(expression);
+        assertThat(result).isEqualTo(2);
+    }
+
+    @Test
+    @DisplayName("종합 계산 테스트 - 올바르지 않은 수식 1")
+    void calculateWithInValidExpression1() {
+        String expression = "- 2 + 3;4 * 5 / 3";
+        assertThrows(IllegalArgumentException.class, () -> calculator.calculate(expression));
+    }
+
+    @Test
+    @DisplayName("종합 계산 테스트 - 올바르지 않은 수식 2")
+    void calculateWithInValidExpression2() {
+        String expression = ";2 + 3;4 * 5 / 3";
+        assertThrows(IllegalArgumentException.class, () -> calculator.calculate(expression));
+    }
+
+    @Test
+    @DisplayName("종합 계산 테스트 - 올바르지 않은 수식 3")
+    void calculateWithInValidExpression3() {
+        String expression = "2 ++ 3;4 * 5 / 3";
+        assertThrows(IllegalArgumentException.class, () -> calculator.calculate(expression));
+    }
+
+    @Test
+    @DisplayName("종합 계산 테스트 - 올바르지 않은 수식 4")
+    void calculateWithInValidExpression4() {
+        String expression = "2 + 3;4 * 5 / 3 /";
+        assertThrows(IllegalArgumentException.class, () -> calculator.calculate(expression));
+    }
+
+    @Test
+    @DisplayName("종합 계산 테스트 - 0으로 나누기가 존재하는 수식")
+    void calculateWithExpressionIncludesDivideByZero() {
+        String expression = "2 + 3;4 * 5 / 0 * 3";
+        assertThrows(ArithmeticException.class, () -> calculator.calculate(expression));
+    }
+
+    @Test
+    @DisplayName("종합 계산 테스트 - 빈 수식")
+    void calculateWithEmptyExpression() {
+        String expression = "";
+        assertEquals(0, calculator.calculate(expression));
+    }
+
+    @Test
+    @DisplayName("종합 계산 테스트 - null인 수식")
+    void calculateWithNullExpression() {
+        String expression = null;
+        assertEquals(0, calculator.calculate(expression));
+    }
 }
